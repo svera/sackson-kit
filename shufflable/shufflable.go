@@ -22,10 +22,7 @@ func init() {
 
 // New initialises and returns a Shufflable instance.
 func New(its ...interface{}) *Shufflable {
-	shuff := Shufflable{}
-	shuff.Items = append(shuff.Items, its...)
-
-	return &shuff
+	return &Shufflable{Items: its}
 }
 
 // Draw extracts a random item from the set and returns it.
