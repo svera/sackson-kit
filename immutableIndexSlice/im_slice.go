@@ -36,10 +36,12 @@ func (s *ImSlice) SortedKeys() []int {
 	return keys
 }
 
-// Append adds a new item to the end of ImSlice
-func (s *ImSlice) Append(item interface{}) *ImSlice {
-	s.container[s.counter] = item
-	s.counter++
+// Append adds passed items to the end of ImSlice
+func (s *ImSlice) Append(items ...interface{}) *ImSlice {
+	for _, item := range items {
+		s.container[s.counter] = item
+		s.counter++
+	}
 	return s
 }
 

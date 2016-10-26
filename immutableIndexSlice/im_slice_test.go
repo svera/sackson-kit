@@ -12,6 +12,14 @@ func TestAppend(t *testing.T) {
 	}
 }
 
+func TestAppendMultiple(t *testing.T) {
+	slice := New()
+	slice.Append("item 1", "item 2", "item 3")
+	if len(slice.container) != 3 {
+		t.Errorf("Slice must have exactly 3 items, got %d", len(slice.container))
+	}
+}
+
 func TestDelete(t *testing.T) {
 	slice := New()
 	slice.Append("item")

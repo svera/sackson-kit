@@ -21,8 +21,11 @@ func init() {
 }
 
 // New initialises and returns a Shufflable instance.
-func New(its []interface{}) *Shufflable {
-	return &Shufflable{Items: its}
+func New(its ...interface{}) *Shufflable {
+	shuff := Shufflable{}
+	shuff.Items = append(shuff.Items, its...)
+
+	return &shuff
 }
 
 // Draw extracts a random item from the set and returns it.
@@ -49,7 +52,7 @@ func (s *Shufflable) Delete(i int) *Shufflable {
 }
 
 // Append adds the passed items to the set.
-func (s *Shufflable) Append(items []interface{}) *Shufflable {
+func (s *Shufflable) Append(items ...interface{}) *Shufflable {
 	s.Items = append(s.Items, items...)
 	return s
 }
