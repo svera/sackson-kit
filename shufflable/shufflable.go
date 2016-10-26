@@ -28,12 +28,14 @@ func New(its ...interface{}) *Shufflable {
 // Draw extracts a random item from the set and returns it.
 func (s *Shufflable) Draw() interface{} {
 	remainingItems := len(s.Items)
-	if remainingItems == 0 {
-		return nil
-	}
+	var pos int
 
-	pos := 0
-	if remainingItems > 1 {
+	switch remainingItems {
+	case 0:
+		return nil
+	case 1:
+		pos = 0
+	default:
 		pos = rn.Intn(remainingItems - 1)
 	}
 

@@ -11,9 +11,9 @@ func TestNew(t *testing.T) {
 
 func TestAppend(t *testing.T) {
 	shuff := New("item 1", "item 2")
-	shuff.Append("item 3")
-	if len(shuff.Items) != 3 {
-		t.Errorf("Shuff must have exactly 3 items, got %d", len(shuff.Items))
+	shuff.Append("item 3", "item 4")
+	if len(shuff.Items) != 4 {
+		t.Errorf("Shuff must have exactly 4 items, got %d", len(shuff.Items))
 	}
 }
 
